@@ -1,0 +1,44 @@
+/* Стили для страницы RoadMap */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .roadmap-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #121a21; /* Темный фон */
+    height: 100%; /* Полная высота экрана */
+  }
+  
+  .image-container {
+    width: 100%;
+    height: 100%; /* Растягиваем изображение на всю высоту */
+    overflow: hidden; /* Прячем выходящие части изображения */
+    position: relative;
+    z-index: 1;
+  }
+  
+  .roadmap-image {
+    width: 100%; /* Растягиваем изображение по ширине */
+    height: 100%; /* Растягиваем изображение по высоте */
+    object-fit: cover; /* Сохраняем пропорции изображения */
+  }  
+  
+  @media (max-width: 768px) {
+    .roadmap-image {
+      object-fit: contain; /* Для мобильных устройств сохраняем пропорции */
+    }
+  
+    .content h1 {
+      font-size: 28px; /* Меньше размер заголовка на мобильных */
+    }
+  
+    .content p {
+      font-size: 16px; /* Меньше размер текста на мобильных */
+    }
+  }
+  

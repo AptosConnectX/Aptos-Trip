@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: 'LC Chalk';
+    src: url('/public/fonts/LCChalk.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

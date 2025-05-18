@@ -1,0 +1,4 @@
+export const NETWORK = process.env.REACT_APP_NETWORK || "mainnet";
+export const MODULE_ADDRESS = process.env.REACT_APP_MODULE_ADDRESS;
+export const COLLECTION_CREATOR_ADDRESS = process.env.REACT_APP_COLLECTION_CREATOR_ADDRESS;
+export const COLLECTION_ADDRESS = process.env.REACT_APP_COLLECTION_ADDRESS;

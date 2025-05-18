@@ -1,0 +1,50 @@
+/* Partners.css */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.partners-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #121a21; /* Темный фон */
+  height: 100%; /* Полная высота экрана */
+}
+
+.image-container {
+  width: 100%;
+  height: 100%; /* Растягиваем изображение на всю высоту */
+  overflow: hidden; /* Прячем выходящие части изображения */
+  position: relative;
+  z-index: 1;
+}
+
+.partners-image {
+  width: 100%; /* Растягиваем изображение по ширине */
+  height: 100%; /* Растягиваем изображение по высоте */
+  object-fit: cover; /* Сохраняем пропорции изображения */
+}
+
+.footer-text {
+  position: absolute;
+  bottom: 10%; /* Расположение в нижней части страницы */
+  width: 100%;
+  text-align: center;
+  z-index: 2; /* Над изображением */
+}
+
+.footer-text p {
+  font-family: "Sanyo Cyr", sans-serif; /* Указываем шрифт */
+  font-size: 5rem; /* Большой размер шрифта */
+  font-style: italic; /* Курсив */
+  color: white; /* Белый цвет текста */
+  text-shadow: 
+    0 0 15px rgba(0, 255, 234, 0.8), /* Мягкое внешнее свечение (циан) */
+    -1px -1px 0 #000000, /* Обводка сверху слева (пурпурный) */
+    1px -1px 0 #000000, /* Обводка сверху справа */
+    -1px 1px 0 #000000, /* Обводка снизу слева */
+    1px 1px 0 #000000; /* Обводка снизу справа */
+}

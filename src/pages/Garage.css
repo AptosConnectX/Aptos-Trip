@@ -1,0 +1,665 @@
+/* Переопределяем стили body, чтобы избежать конфликта с фоном из App.css */
+body {
+  background-color: transparent !important; /* Убираем lightblue из App.css */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Основной контейнер страницы */
+.garage-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+  padding: clamp(0.5rem, 1vw, 0.625rem);
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative; /* Для псевдоэлемента ::before */
+  overflow: hidden; /* Чтобы псевдоэлемент не выходил за границы */
+}
+
+/* Псевдоэлемент для фона с размытием и маской */
+.garage-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/titikaka.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7; /* Непрозрачность 70% */
+  filter: blur(0.25rem); /* Размытие по Гауссу 4px */
+  z-index: 0; /* Помещаем фон под содержимое */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 1) 17.5%,
+    rgba(0, 0, 0, 1) 82.5%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 1) 17.5%,
+    rgba(0, 0, 0, 1) 82.5%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+}
+
+.garage-title {
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: bold;
+  color: #facc15;
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vh, 1.875rem);
+  text-shadow: 0 0 0.9375rem rgba(250, 204, 21, 0.8);
+  z-index: 1;
+}
+
+/* Контейнер для левой и правой частей */
+.garage-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  flex-grow: 1;
+  z-index: 1;
+}
+
+/* Левая часть: фильтры, NFT и пагинация */
+.nft-section {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.625rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.filter-container {
+  margin-bottom: clamp(1.5rem, 3vh, 2rem); /* Увеличиваем отступ снизу */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.rarity-filter {
+  display: flex;
+  gap: clamp(0.75rem, 1.5vw, 1rem); /* Увеличиваем расстояние между кнопками */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-button {
+  background-color: #253646;
+  color: white;
+  border: none;
+  border-radius: 0.3125rem;
+  padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem); /* Увеличиваем отступы */
+  font-size: clamp(0.875rem, 1.2vw, 1rem); /* Увеличиваем шрифт */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #61dafb;
+  color: black;
+}
+
+.filter-button.active {
+  background-color: #61dafb;
+  color: black;
+  box-shadow: 0 0 0.625rem rgba(97, 218, 251, 0.6);
+}
+
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Фиксированные 4 столбца */
+  gap: clamp(1rem, 2vw, 2.1875rem);
+  max-height: 100%;
+  padding: clamp(0.5rem, 1vw, 1rem);
+}
+
+.nft-card {
+  position: relative;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  width: clamp(8rem, 12vw, 12.5rem);
+  aspect-ratio: 25 / 36;
+  max-width: 12.5rem;
+  max-height: 18rem;
+  background-color: #1c252b;
+  transition: transform 0.3s ease;
+}
+
+.nft-card:hover {
+  transform: scale(1.05);
+}
+
+.nft-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem;
+}
+
+.no-nfts-message {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+
+.pagination-container {
+  margin-top: clamp(1.5rem, 3vh, 2rem); /* Увеличиваем отступ сверху */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2rem); /* Увеличиваем расстояние между элементами */
+  padding: clamp(0.75rem, 1.5vh, 1rem); /* Увеличиваем внутренние отступы */
+}
+
+.pagination-button {
+  background-color: #253646;
+  color: white;
+  border: 0.0625rem solid #61dafb;
+  border-radius: 0.3125rem;
+  padding: clamp(0.625rem, 1.2vw, 1rem) clamp(1.25rem, 2.5vw, 2rem); /* Увеличиваем отступы */
+  font-size: clamp(1rem, 1.5vw, 1.125rem); /* Увеличиваем шрифт */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-button:hover {
+  background-color: #61dafb;
+  color: black;
+}
+
+.pagination-button:disabled {
+  background-color: #1c252b;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  font-size: clamp(1rem, 1.5vw, 1.125rem); /* Увеличиваем шрифт */
+  color: #facc15;
+}
+
+/* Правая часть: расчёты и сеты */
+.stats-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vh, 2.5rem);
+  border-radius: 0.625rem;
+  padding: clamp(1rem, 2vw, 1.25rem);
+}
+
+.win-chance-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-title {
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  font-weight: bold;
+  color: #facc15;
+  text-shadow: 0 0 0.625rem rgba(250, 204, 21, 0.6);
+  margin-bottom: clamp(0.75rem, 1.5vh, 0.9375rem);
+  text-align: center;
+}
+
+.win-chance {
+  width: 100%;
+  position: relative;
+  padding: clamp(0.75rem, 1.5vh, 0.9375rem);
+  border-radius: 0.625rem;
+  border: none;
+  box-shadow: 
+    0 0 1.875rem rgba(97, 218, 251, 0.5),
+    0 0 3.125rem rgba(97, 218, 251, 0.3);
+}
+
+.win-chance::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1c252b;
+  opacity: 0.7;
+  z-index: 0;
+  border-radius: 0.625rem;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+}
+
+.chance-label {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  color: #facc15;
+  margin-bottom: 0.3125rem;
+  position: relative;
+  z-index: 1;
+}
+
+.chance-value {
+  font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+  font-weight: bold;
+  color: #facc15;
+  margin-bottom: 0.625rem;
+  position: relative;
+  z-index: 1;
+}
+
+.chance-bar {
+  width: 100%;
+  height: clamp(1rem, 2vh, 1.25rem);
+  background-color: #2f3944;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.chance-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #61dafb, #facc15);
+  transition: width 1s ease;
+}
+
+.no-chance-message {
+  font-size: 1.125rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sets-section {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 8vh, 6rem);
+  align-items: center;
+}
+
+.sets-title {
+  font-size: clamp(1.5rem, 2vw, 1.875rem);
+  font-weight: bold;
+  color: #facc15;
+  text-shadow: 0 0 0.625rem rgba(250, 204, 21, 0.6);
+  margin-bottom: clamp(-3rem, -5vh, -2.5rem);
+  text-align: center;
+}
+
+.set-container {
+  position: relative;
+  width: 100%;
+  padding: clamp(0.75rem, 1.5vh, 0.9375rem);
+  border-radius: 0.625rem;
+  border: none;
+  box-shadow: 
+    0 0 1.875rem rgba(97, 218, 251, 0.5),
+    0 0 3.125rem rgba(97, 218, 251, 0.3);
+  display: flex;
+  gap: clamp(0.75rem, 1.5vw, 0.9375rem);
+  background: none;
+}
+
+.set-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 15%,
+    rgba(28, 37, 43, 0.5) 20%,
+    #1c252b 25%,
+    #1c252b 100%
+  );
+  opacity: 0.7;
+  z-index: -1;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+}
+
+.set-images-wrapper {
+  position: relative;
+  width: clamp(6rem, 10vw, 7rem);
+  height: clamp(6rem, 8vh, 10rem);
+  z-index: 1;
+}
+
+.set-images-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3125rem;
+  overflow: visible;
+}
+
+.set-image {
+  position: absolute;
+  width: clamp(5.5rem, 9vw, 6.5rem);
+  height: clamp(9rem, 15vh, 11rem);
+  object-fit: cover;
+}
+
+.set-image-1 {
+  top: 0;
+  left: 0.8rem;
+  z-index: 7;
+  opacity: 1;
+  filter: none;
+}
+
+.set-image-2 {
+  top: -0.5rem;
+  left: 0;
+  z-index: 6;
+  opacity: 0.9;
+  filter: blur(1px);
+}
+
+.set-image-3 {
+  top: -1rem;
+  left: 2rem;
+  z-index: 5;
+  opacity: 0.85;
+  filter: blur(2px);
+}
+
+.set-image-4 {
+  top: -1.5rem;
+  left: -1rem;
+  z-index: 4;
+  opacity: 0.8;
+  filter: blur(3px);
+}
+
+.set-image-5 {
+  top: -2rem;
+  left: 3rem;
+  z-index: 3;
+  opacity: 0.75;
+  filter: blur(4px);
+}
+
+.set-image-6 {
+  top: -2.5rem;
+  left: -2rem;
+  z-index: 2;
+  opacity: 0.7;
+  filter: blur(5px);
+}
+
+.set-image-7 {
+  top: -3rem;
+  left: 4rem;
+  z-index: 1;
+  opacity: 0.65;
+  filter: blur(6px);
+}
+
+.set-image-placeholder {
+  width: clamp(5.5rem, 9vw, 6.5rem);
+  height: clamp(8rem, 13vh, 9.5rem);
+  background-color: #2f3944;
+  border-radius: 0.3125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.set-info {
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+  text-align: right;
+}
+
+.set-name {
+  font-family: "Sanyo Cyr", sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-style: italic;
+  color: white;
+  text-shadow: 
+    0 0 0.9375rem rgba(0, 255, 234, 0.8),
+    -0.0625rem -0.0625rem 0 #000000,
+    0.0625rem -0.0625rem 0 #000000,
+    -0.0625rem 0.0625rem 0 #000000,
+    0.0625rem 0.0625rem 0 #000000;
+  margin-bottom: 0.3125rem;
+  margin-right: -1.25rem;
+  margin-top: -3rem;
+}
+
+.set-description {
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  color: white;
+  margin-bottom: 0.3125rem;
+}
+
+.set-bonus {
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  color: #facc15;
+}
+
+/* Адаптивность */
+@media screen and (min-resolution: 120dpi) {
+  .garage-title,
+  .stats-title,
+  .sets-title {
+    font-size: calc(clamp(1.5rem, 2vw, 1.875rem) * 0.8);
+  }
+
+  .filter-button {
+    font-size: calc(clamp(0.875rem, 1.2vw, 1rem) * 0.8); /* Увеличиваем шрифт */
+  }
+
+  .set-name {
+    font-size: calc(clamp(1.5rem, 2.5vw, 2.5rem) * 0.8);
+  }
+
+  .pagination-button {
+    font-size: calc(clamp(1rem, 1.5vw, 1.125rem) * 0.8); /* Увеличиваем шрифт */
+  }
+
+  .pagination-info {
+    font-size: calc(clamp(1rem, 1.5vw, 1.125rem) * 0.8); /* Увеличиваем шрифт */
+  }
+}
+
+/* Large screens */
+@media (min-width: 1921px) {
+  .garage-content {
+    max-width: 2000px;
+  }
+
+  .nft-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .nft-card {
+    width: clamp(12rem, 18vw, 18.75rem);
+  }
+}
+
+/* Standard desktop */
+@media (max-width: 1440px) {
+  .garage-content {
+    gap: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .nft-section {
+    flex: 0 0 55%;
+  }
+
+  .nft-card {
+    width: clamp(9rem, 14vw, 12.5rem);
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .garage-content {
+    flex-direction: column;
+    gap: clamp(1rem, 2vh, 1.25rem);
+  }
+
+  .nft-section,
+  .stats-column {
+    flex: none;
+    width: 100%;
+  }
+
+  .nft-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nft-card {
+    width: clamp(8rem, 16vw, 11.25rem);
+  }
+
+  .set-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .set-name {
+    text-align: center;
+    margin-right: 0;
+    margin-top: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .garage-page {
+    padding: 0.25rem;
+  }
+
+  .nft-grid {
+    grid-template-columns: 1fr;
+    gap: clamp(0.5rem, 1vw, 0.75rem);
+  }
+
+  .nft-card {
+    width: clamp(7rem, 15vw, 9.375rem);
+  }
+
+  .filter-button {
+    padding: clamp(0.375rem, 0.8vw, 0.5rem) clamp(0.75rem, 1.5vw, 1rem); /* Уменьшаем для мобильных */
+    font-size: clamp(0.75rem, 1vw, 0.875rem); /* Уменьшаем для мобильных */
+  }
+
+  .pagination-button {
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem); /* Уменьшаем для мобильных */
+    font-size: clamp(0.875rem, 1.2vw, 1rem); /* Уменьшаем для мобильных */
+  }
+
+  .pagination-info {
+    font-size: clamp(0.875rem, 1.2vw, 1rem); /* Уменьшаем для мобильных */
+  }
+
+  .set-images-wrapper {
+    width: clamp(5rem, 8vw, 6rem);
+    height: clamp(3rem, 5vh, 4rem);
+  }
+
+  .set-image {
+    width: clamp(4.5rem, 7vw, 5.5rem);
+    height: clamp(6.5rem, 10vh, 8rem);
+  }
+
+  .set-image-1 {
+    left: 0.75rem;
+  }
+
+  .set-image-2 {
+    top: -0.375rem;
+    left: 0;
+  }
+
+  .set-image-3 {
+    top: -0.75rem;
+    left: 1.5rem;
+  }
+
+  .set-image-4 {
+    top: -1.125rem;
+    left: -0.75rem;
+  }
+
+  .set-image-5 {
+    top: -1.5rem;
+    left: 2.25rem;
+  }
+
+  .set-image-6 {
+    top: -1.875rem;
+    left: -1.5rem;
+  }
+
+  .set-image-7 {
+    top: -2.25rem;
+    left: 3rem;
+  }
+}

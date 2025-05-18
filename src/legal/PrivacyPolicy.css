@@ -1,0 +1,45 @@
+.terms-page {
+    background-color: #121a21;
+    color: #ffffff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.terms-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a252f;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.terms-container h1 {
+    color: #f4b400;
+    text-align: center;
+    font-size: 36px; /* Увеличиваем размер шрифта для заголовка */
+    margin-bottom: 10px;
+}
+
+.terms-container h2 {
+    color: #f4b400;
+    text-align: center;
+    font-size: 18px;
+}
+
+.terms-container h3 {
+    margin-top: 20px;
+    color: #f4b400;
+    font-size: 20px; /* Увеличиваем размер шрифта для подзаголовков */
+}
+
+.terms-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.terms-container p {
+    margin-bottom: 10px;
+}

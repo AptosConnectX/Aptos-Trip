@@ -1,0 +1,40 @@
+.wallet-dropdown-content {
+  min-width: clamp(15rem, 20vw, 20rem); /* ~240px - 320px */
+  font-family: "Helvetica", "system-ui", sans-serif !important;
+  background-color: #1c252b;
+  padding: 0.75rem; /* ~12px */
+  border-radius: 0.5rem; /* ~8px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  color: white;
+  border: 1px solid #253646;
+}
+
+.wallet-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 1.75rem); /* ~24px - 28px */
+  padding: 0.5rem 1.5rem; /* ~8px 24px */
+  font-size: clamp(0.75rem, 2vw, 0.875rem); /* ~12px - 14px */
+  font-weight: normal;
+  transition: background-color 0.3s;
+}
+
+.wallet-dropdown-item:hover {
+  background-color: #253646;
+  border-radius: 0.25rem; /* ~4px */
+}
+
+.wallet-dropdown-item:focus {
+  outline: none;
+}
+
+.wallet-dropdown-item svg {
+  width: clamp(1rem, 3vw, 1.25rem); /* ~16px - 20px */
+  height: clamp(1rem, 3vw, 1.25rem); /* ~16px - 20px */
+}
+
+.divider {
+  height: 1px;
+  background-color: #253646;
+  margin: 0.5rem 0; /* ~8px */
+}

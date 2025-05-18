@@ -1,0 +1,18 @@
+[
+    { "id": 0, "name": "BMW 430" },
+    { "id": 1, "name": "BMW M5 Competition" },
+    { "id": 2, "name": "BMW X4" },
+    { "id": 3, "name": "BMW X6" },
+    { "id": 4, "name": "BMW X5" },
+    { "id": 5, "name": "BMW M4" },
+    { "id": 6, "name": "Xiaomi SUV 7 Ultra" },
+    { "id": 7, "name": "Mercedes-Benz S63 coupe" },
+    { "id": 8, "name": "Porsche Cayman" },
+    { "id": 9, "name": "Ford Mustang GT" },
+    { "id": 10, "name": "Nissan GTR" },
+    { "id": 11, "name": "Jaguar F-Type" },
+    { "id": 12, "name": "Lada Vesta" },
+    { "id": 13, "name": "Changan UNI-K" },
+    { "id": 14, "name": "Avatr" },
+    { "id": 15, "name": "Tesla X" }
+]

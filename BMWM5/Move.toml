@@ -1,0 +1,16 @@
+[package]
+name = "artikasatkav103"
+version = "1.0.0"
+
+[addresses]
+deploy_addr = "0x6c949011b612d398bfe80a9307e3ade4ba61f6e6678451b4da5b35dad07c934a"
+std = "0x1"
+aptos_std = "0x1"
+aptos_framework = "0x1"
+aptos_token_objects = "0x4"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "mainnet", subdir = "aptos-move/framework/aptos-framework" }
+AptosTokenObjects = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "mainnet", subdir = "aptos-move/framework/aptos-token-objects" }
+
+[dev-dependencies]

@@ -1,0 +1,96 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.footer-left p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.footer-link {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-right {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: flex-end; /* Гарантируем выравнивание */
+  flex-wrap: nowrap; /* Предотвращаем перенос */
+}
+
+.social-link {
+  text-decoration: none;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Центрируем содержимое */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Размеры и fill для SVG иконок */
+.social-link svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff !important; /* Белый цвет по умолчанию с высокой специфичностью */
+}
+
+/* Единый эффект наведения */
+.social-link:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Изменение цвета SVG при наведении с высокой специфичностью */
+.footer-right .social-link.youtube:hover svg {
+  fill: #ff0000 !important; /* Красный для YouTube */
+}
+
+.footer-right .social-link.telegram:hover svg {
+  fill: #0088cc !important; /* Голубой для Telegram */
+}
+
+.footer-right .social-link.instagram:hover svg {
+  fill: #e4405f !important; /* Розовый для Instagram */
+}
+
+.x-twitter {
+  margin-right: 0px; /* Убираем лишний отступ справа */
+}
+
+.x-twitter img {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.x-twitter:hover img {
+  transform: scale(1.2);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.email-link {
+  color: #ffd700;
+}
+
+.email-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}

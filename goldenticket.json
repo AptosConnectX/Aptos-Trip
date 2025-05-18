@@ -1,0 +1,8 @@
+{
+  "name": "GoldenTicket",
+  "description": "Golden Ticket for Aptos Trip Raffle",
+  "image": "https://amaranth-raw-lemur-681.mypinata.cloud/ipfs/bafybeidkpsqsuqeflvv4eqfhrh7nhi4ry5wc3lxy75lgziyr4xkskyxfuy",
+  "attributes": [
+    { "trait_type": "Type", "value": "Raffle Ticket" }
+  ]
+}

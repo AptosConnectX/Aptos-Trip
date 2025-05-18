@@ -1,0 +1,569 @@
+/* Main style for the page */
+.mint-nft-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #121a21;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: clamp(2rem, 5vh, 3rem); /* Adaptive padding */
+}
+
+/* Main container */
+.mint-nft-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  width: 100%;
+  height: clamp(30rem, 60vh, 45rem); /* Adaptive height */
+  box-sizing: border-box;
+}
+
+/* Image container on the left */
+.image-container {
+  width: 40%; /* Include image */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.mystery-car-image {
+  width: clamp(35%, 40%, 45%);
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 194, 255, 0.6);
+  border: 0px solid #00c2ff;
+}
+
+/* Right container */
+.right-container {
+  width: clamp(60%, 65%, 70%);
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2%;
+  box-sizing: border-box;
+}
+
+/* Top container on the right */
+.mission-container {
+  width: 100%;
+  height: 90%;
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.mission-image {
+  width: 100%;
+  height: auto;
+  max-width: clamp(40rem, 80vw, 56.25rem);
+  border-radius: 10px;
+}
+
+/* Mint control panel */
+.controls-container {
+  background-color: #121a21;
+  border-radius: 10px;
+  padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mint information */
+.mint-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(0.5rem, 1vw, 0.75rem);
+  margin: 0;
+}
+
+.mint-info p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+/* Mint button */
+.mint-nft-button {
+  background-color: #00c2ff;
+  color: #000000;
+  border: none;
+  padding: clamp(0.375rem, 0.8vw, 0.5rem) clamp(0.75rem, 1.5vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.25rem, 0.5vw, 0.375rem);
+}
+
+.mint-nft-button:hover {
+  background-color: #00aaff;
+  transform: scale(1.05);
+}
+
+.mint-nft-button:disabled {
+  background-color: #4a4a4a;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.mint-nft-button.minted {
+  background-color: #ffcd56;
+  color: #000000;
+  box-shadow: 0 0 10px rgba(255, 205, 86, 0.6);
+  cursor: default;
+}
+
+.mint-nft-button.minted:hover {
+  background-color: #ffcd56;
+  transform: none;
+}
+
+/* Transaction hash container */
+.transaction-container {
+  background-color: #1c252b;
+  border-radius: 10px;
+  padding: clamp(0.5rem, 1vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+  margin-top: clamp(0.5rem, 1vh, 1rem);
+  width: 100%;
+  max-width: clamp(40rem, 80vw, 56.25rem);
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
+  border: 1px solid #00c2ff;
+}
+
+/* Transaction title */
+.transaction-title {
+  font-size: clamp(0.875rem, 1.8vw, 1.125rem);
+  font-weight: bold;
+  color: #00c2ff;
+  margin-bottom: clamp(0.25rem, 0.5vh, 0.375rem);
+}
+
+/* Transaction content */
+.transaction-content {
+  font-size: clamp(0.875rem, 1.6vw, 1rem);
+  color: #ffffff;
+}
+
+.transaction-content a {
+  color: #00c2ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.transaction-content a:hover {
+  color: #00aaff;
+  text-decoration: underline;
+}
+
+/* Animation overlay */
+.animation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+/* Video with girl */
+.start-race-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  z-index: 1001; /* Видео поверх фона, но ниже силуэта */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 5%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.8) 15%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0.5) 90%,
+    rgba(0, 0, 0, 0.1) 95%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 5%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.8) 15%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0.5) 90%,
+    rgba(0, 0, 0, 0.1) 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 5%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.8) 15%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0.5) 90%,
+    rgba(0, 0, 0, 0.1) 95%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 5%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.8) 15%,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0.8) 85%,
+    rgba(0, 0, 0, 0.5) 90%,
+    rgba(0, 0, 0, 0.1) 95%,
+    transparent 100%
+  );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* NFT silhouette */
+.nft-silhouette {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease, transform 1s ease;
+  z-index: 1002; /* Силуэт поверх видео */
+}
+
+.nft-silhouette.reveal {
+  opacity: 1;
+  transform: scale(1);
+  animation: fogReveal 3s ease forwards;
+}
+
+.nft-silhouette-image {
+  width: clamp(10rem, 20vw, 15rem);
+  height: auto;
+  border-radius: 10px;
+  position: relative;
+  filter: none;
+}
+
+/* Fog reveal effect */
+@keyframes fogReveal {
+  0% { opacity: 0; filter: blur(20px); box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+  30% { opacity: 0.3; filter: blur(15px); box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+  60% { opacity: 0.6; filter: blur(10px); box-shadow: 0 0 30px rgba(255, 255, 255, 0.4); }
+  100% { opacity: 1; filter: blur(0); box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
+}
+
+/* Fog effect */
+.nft-silhouette.reveal::before {
+  content: "";
+  position: absolute;
+  top: -1.25rem;
+  left: -1.25rem;
+  right: -1.25rem;
+  bottom: -1.25rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  animation: fogFade 3s ease forwards;
+  pointer-events: none;
+  z-index: 1003; /* Дымка поверх силуэта */
+}
+
+@keyframes fogFade {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* NFT reveal container */
+.nft-reveal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+  cursor: pointer;
+}
+
+/* Congratulations title */
+.nft-reveal-title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: bold;
+  color: #ffcd56;
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
+  text-shadow: 0 0 10px rgba(255, 205, 86, 0.6);
+}
+
+/* NFT image */
+.nft-reveal-image {
+  width: clamp(10rem, 20vw, 15rem);
+  height: auto;
+  border: none;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: reveal 1s ease forwards;
+}
+
+/* Reveal animation */
+@keyframes reveal {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Spark effect around the edge */
+.nft-reveal-image::before {
+  content: "";
+  position: absolute;
+  top: -0.3125rem;
+  left: -0.3125rem;
+  right: -0.3125rem;
+  bottom: -0.3125rem;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 200%;
+  animation: sparkTrail 3s linear forwards;
+  pointer-events: none;
+}
+
+/* Spark animation */
+@keyframes sparkTrail {
+  0% { background-position: 0% 0%; clip-path: polygon(0 0, 0 0, 0 0, 0 0); }
+  25% { background-position: 100% 0%; clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); }
+  50% { background-position: 100% 100%; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  75% { background-position: 0% 100%; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  100% { background-position: 0% 0%; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.faq-section {
+  width: 100%;
+  max-width: clamp(40rem, 80vw, 75rem);
+  margin: clamp(10rem, 10vh, 20rem) 0 0 0; /* Только верхний отступ */
+  padding: 0 clamp(1rem, 2vw, 1.5rem) 0 0 0; /* Отступ только справа */
+  background-color: #121a21;
+  border-radius: 10px;
+}
+
+.faq-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
+  color: #ffcd56;
+  text-align: left;
+  margin-bottom: clamp(1rem, 2vh, 1.5rem);
+  text-shadow: 0 0 10px rgba(255, 205, 86, 0.6);
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1vh, 0.75rem);
+}
+
+.faq-item {
+  background-color: #0f151b;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.875rem, 1.8vw, 1.125rem);
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #1a2026;
+}
+
+.faq-arrow {
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  transition: transform 0.3s ease;
+  color: #ffcd56;
+}
+
+.faq-arrow.open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.75rem, 1.6vw, 1rem);
+  color: #9ca3af;
+  line-height: 1.5;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 31.25rem;
+  padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+}
+
+.faq-answer a {
+  color: #00c2ff;
+  text-decoration: none;
+}
+
+.faq-answer a:hover {
+  text-decoration: underline;
+}
+
+/* Remove unused styles */
+.custom-counter,
+.counter-btn,
+.counter-display,
+.car-card,
+.rarity-label,
+.car-info,
+.car-name,
+.car-brand {
+  display: none;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .mint-nft-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-container {
+    width: 100%;
+    height: clamp(15rem, 40vw, 18.75rem);
+  }
+
+  .mystery-car-image {
+    width: clamp(70%, 80%, 90%);
+  }
+
+  .right-container {
+    width: 100%;
+    padding: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .mission-container {
+    height: auto;
+  }
+
+  .mission-image {
+    max-width: 100%;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    gap: clamp(0.5rem, 1vh, 0.75rem);
+  }
+
+  .mint-info p {
+    font-size: clamp(0.875rem, 1.8vw, 1rem);
+  }
+
+  .mint-nft-button {
+    font-size: clamp(0.875rem, 1.8vw, 1rem);
+    padding: clamp(0.25rem, 0.6vw, 0.375rem) clamp(0.5rem, 1vw, 0.75rem);
+  }
+
+  .faq-section {
+    margin: clamp(1rem, 2vh, 1.5rem) clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .faq-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  .faq-question {
+    font-size: clamp(0.75rem, 1.6vw, 1rem);
+    padding: clamp(0.5rem, 1vw, 0.75rem) clamp(0.75rem, 1.5vw, 1rem);
+  }
+
+  .faq-answer {
+    font-size: clamp(0.6875rem, 1.4vw, 0.875rem);
+  }
+
+  .nft-reveal-image,
+  .nft-silhouette-image {
+    width: clamp(7rem, 14vw, 10rem);
+  }
+
+  .nft-reveal-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-section {
+    margin: clamp(0.5rem, 1vh, 1rem) clamp(0.25rem, 0.5vw, 0.5rem);
+  }
+
+  .faq-title {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+
+  .nft-reveal-image,
+  .nft-silhouette-image {
+    width: clamp(5rem, 12vw, 8rem);
+  }
+
+  .nft-reveal-title {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+}

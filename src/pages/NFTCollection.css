@@ -1,0 +1,38 @@
+/* Стили для страницы NFT Collection */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+.nft-collection-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #121a21; /* Темный фон */
+    height: 100%; /* Полная высота экрана */
+}
+
+.nft-image-container {
+    width: 100%;
+    height: 100%; /* Растягиваем изображение на всю высоту */
+    overflow: hidden; /* Прячем выходящие части изображения */
+    position: relative;
+    z-index: 1;
+}
+
+.nft-collection-image {
+    width: 100%; /* Растягиваем изображение по ширине */
+    height: 100%; /* Растягиваем изображение по высоте */
+    object-fit: cover; /* Сохраняем пропорции изображения */
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .nft-buttons-container {
+        bottom: 20px; /* Сместим кнопку вниз */
+        right: 20px;
+    }
+}

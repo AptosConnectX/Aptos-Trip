@@ -1,0 +1,77 @@
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 50vh; /* Оставляем 50vh как высоту */
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0; /* Убирает отступы */
+  padding: 0; /* Убирает внутренние отступы */
+}
+
+.carousel-slide {
+  text-align: center;
+  padding: 0;
+}
+
+.carousel-slide img {
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: 100%; /* Занимает всю высоту контейнера */
+  object-fit: cover; /* Сохраняет пропорции изображения, заполняя контейнер */
+  display: block; /* Убирает возможные пробелы вокруг изображения */
+}
+
+.learn-more-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute; /* Устанавливаем абсолютное позиционирование */
+  bottom: 20px; /* Располагаем кнопку внизу изображения с небольшим отступом */
+  left: 50%; /* Центрируем кнопку по горизонтали */
+  transform: translateX(-50%); /* Уравновешиваем смещение для центрирования */
+  z-index: 10; /* Обеспечиваем, чтобы кнопка была выше остальных элементов */
+}
+
+.learn-more-button:hover {
+  background-color: #0056b3;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.arrow {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.carousel:hover .arrow {
+  opacity: 1;
+}
+
+.left-arrow {
+  position: absolute;
+  left: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  right: 10px;
+}

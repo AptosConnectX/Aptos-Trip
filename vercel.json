@@ -1,0 +1,29 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/route/:path*",
+      "destination": "http://router.project-osrm.org/route/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/route/:path*",
+      "headers": [
+        { "key": "User-Agent", "value": "AptosTrip/1.0 (Contact: your-email@example.com)" },
+        { "key": "Accept", "value": "application/json" }
+      ]
+    }
+  ],
+  "builds": [   
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ]
+}

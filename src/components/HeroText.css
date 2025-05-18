@@ -1,0 +1,21 @@
+/* components/HeroText.css */
+
+.hero-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px; /* Задаем высоту для блока с текстом */
+  background-color: #121a21;
+  margin-top: 40px; /* Отступ сверху, чтобы текст не был слишком близко к слайдерам */
+  color: white;
+  padding: 20px;
+}
+
+.hero-title {
+  font-family: 'Bold Display Fonts', sans-serif; /* Используйте шрифт, который вы выбрали */
+  font-size: 2.5rem; /* Размер шрифта */
+  text-align: center;
+  line-height: 1.5;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}

@@ -1,0 +1,351 @@
+/* MainPageImage.css */
+
+/* Контейнер для главного изображения */
+.main-image-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Кнопки */
+.buttons-container {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  gap: 15rem;
+  z-index: 2;
+}
+
+.buttons-container .mint-nft-button,
+.buttons-container .learn-more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  font-family: "Sanyo Cyr", sans-serif;
+}
+
+.buttons-container .mint-nft-button {
+  background: linear-gradient(90deg, #00b7eb, #0099cc);
+}
+
+.buttons-container .mint-nft-button:hover {
+  background: linear-gradient(90deg, #0099cc, #00b7eb);
+  transform: scale(1.05);
+}
+
+.buttons-container .learn-more-button {
+  background-color: #c14acc;
+}
+
+.buttons-container .learn-more-button:hover {
+  background-color: #e970f4;
+  transform: scale(1.05);
+}
+
+/* Видео */
+.main-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #121a21;
+  color: white;
+  padding: 0;
+  overflow: visible;
+}
+
+.video-container {
+  position: absolute; /* Возвращаем абсолютное позиционирование */
+  bottom: 20px; /* Возвращаем исходное положение */
+  width: 100%;
+  max-width: none;
+  left: 0;
+  transform: none;
+  z-index: 3;
+  opacity: 1; /* Всегда видимый */
+}
+
+.main-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  object-fit: cover;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 10%,
+    rgba(0, 0, 0, 0.5) 20%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.8) 70%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.1) 90%,
+    transparent 100%
+  );
+}
+
+.play-video-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 150px;
+  text-align: center;
+  color: #b0b0b0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 4;
+  text-shadow: 0 0 10px rgba(255, 205, 86, 0.6);
+}
+
+.play-video-button::before {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 150px;
+  color: transparent;
+  -webkit-text-stroke: 4px #ffcd56;
+  text-shadow: none;
+  pointer-events: none;
+}
+
+.play-video-button:hover {
+  color: #a0a0a0;
+  transform: translate(-50%, -50%) scale(1.1);
+  text-shadow: 0 0 15px rgba(255, 205, 86, 0.8);
+}
+
+.play-video-button:hover::before {
+  -webkit-text-stroke: 2px #ffcd56;
+  text-shadow: 0 0 15px rgba(255, 205, 86, 0.8);
+}
+
+/* Плавный переход */
+.gradient-transition {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(18, 26, 33, 0) 0%, rgba(18, 26, 33, 1) 100%);
+  padding-top: 40px;
+  width: 100%;
+}
+
+/* Раздел Gratitude */
+.gratitude-section {
+  background-color: #121a21;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.gratitude-title {
+  font-size: 57px;
+  font-weight: bold;
+  color: #ffcd56;
+  text-shadow: 0 0 10px rgba(255, 205, 86, 0.6);
+  margin-bottom: 40px;
+  font-family: "Sanyo Cyr", sans-serif;
+}
+
+.gratitude-carousel-wrapper {
+  position: relative;
+  padding-top: 0px;
+  min-height: 0px;
+  overflow: visible;
+}
+
+.gratitude-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  justify-content: center;
+  padding: 50px 0;
+  scrollbar-width: none;
+}
+
+.gratitude-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.gratitude-item-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.gratitude-item {
+  display: block;
+  width: 140px;
+  height: 140px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gratitude-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 183, 235, 0.5);
+}
+
+.gratitude-name {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 0 2px 5px rgba(0, 183, 235, 0.5), 0 0 10px rgba(0, 183, 235, 0.3);
+  font-family: "Sanyo Cyr", sans-serif;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Мобильная версия для экранов до 768px */
+@media (max-width: 768px) {
+  .buttons-container {
+    flex-direction: column;
+    gap: 26px;
+    top: 50%;
+  }
+
+  .buttons-container .mint-nft-button,
+  .buttons-container .learn-more-button {
+    font-size: 16px;
+    padding: 15px 30px;
+  }
+
+  .video-container {
+    bottom: 10px; /* Адаптивное смещение */
+  }
+
+  .main-video {
+    height: 100%;
+  }
+
+  .play-video-button {
+    font-size: 80px;
+  }
+
+  .play-video-button::before {
+    font-size: 80px;
+  }
+
+  .gratitude-section {
+    padding: 40px 10px;
+  }
+
+  .gratitude-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .gratitude-carousel-wrapper {
+    padding-top: 50px;
+    min-height: 180px;
+  }
+
+  .gratitude-carousel {
+    gap: 15px;
+    padding: 30px 0;
+  }
+
+  .gratitude-item {
+    width: 120px;
+    height: 120px;
+  }
+
+  .gratitude-name {
+    font-size: 14px;
+    top: -40px;
+  }
+}
+
+/* Мобильная версия для экранов до 480px */
+@media (max-width: 480px) {
+  .buttons-container {
+    gap: 20px;
+    top: 50%;
+  }
+
+  .buttons-container .mint-nft-button,
+  .buttons-container .learn-more-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .video-container {
+    bottom: 5px; /* Адаптивное смещение */
+  }
+
+  .main-video {
+    height: 100%;
+  }
+
+  .play-video-button {
+    font-size: 50px;
+  }
+
+  .play-video-button::before {
+    font-size: 50px;
+  }
+
+  .gratitude-section {
+    padding: 30px 5px;
+  }
+
+  .gratitude-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .gratitude-carousel-wrapper {
+    padding-top: 40px;
+    min-height: 150px;
+  }
+
+  .gratitude-carousel {
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  .gratitude-item {
+    width: 100px;
+    height: 100px;
+  }
+
+  .gratitude-name {
+    font-size: 12px;
+    top: -30px;
+  }
+}
